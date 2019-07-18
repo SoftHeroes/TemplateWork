@@ -22,7 +22,21 @@
     <link rel="stylesheet" href="assets/css/main.css">    
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    
+    <style>
+        .btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+        </style>
 
   </head>
   <body>
@@ -194,64 +208,57 @@
           <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-4 col-sm-6">
-          <?php
+               <?php
           $serviceArr = explode(",", $businessData->product_dealing);
           foreach ($serviceArr as $service) { ?>
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+          <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
               <div class="icon">
                 <i class="lnr lnr-pencil"></i>
               </div>
               <h4><?php echo $service; ?></h4>
-              <?php } ?>
-            </div>
           </div>
+          </div>
+              <?php } ?>
         </div>
       </div>
     </section>
     <?php } ?>
     <!-- Services Section End -->
-
-
-    <!-- gallery Section Start -->
-    <section id="gallery" class="section">
+      <?php if(!empty($gallery)){?>
+      
+<section id="gallery" class="section">
       <div class="container">
         <div class="section-header">          
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Our gallery</h2>
           <hr class="lines wow zoomIn" data-wow-delay="0.3s">
           <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
         </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
-              <div class="icon">
-                <i class="lnr lnr-pencil"></i>
-              </div>
-              <h4>Content Writing</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
-              <div class="icon">
-                <i class="lnr lnr-code"></i>
-              </div>
-              <h4>Web Development</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
-              <div class="icon">
-                <i class="lnr lnr-mustache"></i>
-              </div>
-              <h4>Business Consultancy</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
+
+
+		<div class="row">
+            
+            <?php foreach ($gallery as $image) { ?>  
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+     data-image="<?php echo IMAGE . $image; ?>"
+    data-target="#image-gallery">
+    <img class="img-thumbnail"
+     src="<?php echo IMAGE . $image; ?>"
+        alt="Another alt text">
+                </a>
+    </div>
+            
+           <?php } ?>  
+         
         </div>
-      </div>
-    </section>
+
+</div>
+      </section>
+       <?php } ?>
+      
+    <!-- gallery Section Start -->
+  
     <!-- gallery Section End -->
 
     <!-- Features Section Start -->

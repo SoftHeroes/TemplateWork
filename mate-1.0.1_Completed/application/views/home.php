@@ -208,18 +208,18 @@
           <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
         </div>
         <div class="row">
-               <?php
-          $serviceArr = explode(",", $businessData->product_dealing);
-          foreach ($serviceArr as $service) { ?>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+        <?php
+        $serviceArr = explode(",", $businessData->product_dealing);
+        foreach ($serviceArr as $service) { ?>
+          <div class="col-lg-6 col-md-4 col-sm-6">
+            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
               <div class="icon">
                 <i class="lnr lnr-pencil"></i>
               </div>
               <h4><?php echo $service; ?></h4>
+            </div>
           </div>
-          </div>
-              <?php } ?>
+          <?php } ?>
         </div>
       </div>
     </section>
@@ -783,17 +783,24 @@
               <div class="contact-us">
                 <h3>Contact With us</h3>
                 <div class="contact-address">
-                  <p>Centerville Road, DE 19808, US </p>
-                  <p class="phone">Phone: <span>(+94 123 456 789)</span></p>
-                  <p class="email">E-mail: <span>(contact@mate.com)</span></p>
+                  <p><?php echo $businessData->person_name; ?> </p>
+                  <p class="phone">Phone: <span>(<?php echo '+91 ' . $businessData->person_number; ?>)</span></p>
+                  <p class="phone">Corporate No: <span>(<?php echo '+91 ' . $businessData->corporate_no; ?>)</span></p>
+                  <p class="email">E-mail: <span>(
+                    <?php
+                    $emailarr = explode(",", $businessData->email);
+                    foreach ($emailarr as $email){
+                      echo $email;
+                    } ?>)</span></p>
+
+                    <p class="phone">Address: <span>(<?php echo $businessData->address . ', ' . $businessData->near_by . ', '.$businessData->city .' - ' . $businessData->pin_code . '.' ?> <br> <?php echo $businessData->state . ', ' . $businessData->country;; ?> )</span></p>
                 </div>
                 <div class="social-icons">
                   <ul>
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                  <?php foreach ($businessData->social_links as $link) {
+                        if($link->name == "Whatsapp"){ $social = 'https://wa.me/'.$link->link; }else{ $social = $link->link;}
+                        echo ' &nbsp;&nbsp;<a href=' . $social . ' target="_blank" class="icon">
+                        <img src=' . IMAGE . $link->icon . ' style="height: 30px; margin:30px 0px"></a> '; } ?>
                   </ul>
                 </div>
               </div>

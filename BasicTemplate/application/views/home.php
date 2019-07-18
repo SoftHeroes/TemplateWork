@@ -143,8 +143,8 @@
                         <span class="icon icon-basic-info"></span>
                         <h6><p><?php echo $service; ?></p></h6>
                     </div>
+                    <?php } ?>
                 </div>
-            <?php } ?>
         </div>
     </div>
 </section>

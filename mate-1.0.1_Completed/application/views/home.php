@@ -34,7 +34,7 @@
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><img class="img-fulid" src="assets/img/logo.png" alt=""></a>
+            <a href="index.html" class="navbar-brand"><img class="img-fulid" src="<?php echo IMAGE . $businessData->picture_path; ?>" alt="" style="width:50px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lnr lnr-menu"></i>
             </button>
@@ -116,8 +116,8 @@
         <div class="row justify-content-md-center">
           <div class="col-md-10">
             <div class="contents text-center">
-              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">Mate - Free Parallax Website Template</h1>
-              <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s"><?php echo $businessData->company_name; ?></h1>
+              <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms"><?php echo $businessData->tags; ?></p>
               <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Download</a>
             </div>
           </div>
@@ -185,6 +185,7 @@
     <!-- about_us Section End -->
 
     <!-- Services Section Start -->
+    <?php if(!empty($businessData->product_dealing)){?>
     <section id="services" class="section">
       <div class="container">
         <div class="section-header">          
@@ -193,36 +194,22 @@
           <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
         </div>
         <div class="row">
-          <div class="col-md-4 col-sm-6">
+          <div class="col-lg-3 col-md-4 col-sm-6">
+          <?php
+          $serviceArr = explode(",", $businessData->product_dealing);
+          foreach ($serviceArr as $service) { ?>
             <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
               <div class="icon">
                 <i class="lnr lnr-pencil"></i>
               </div>
-              <h4>Content Writing</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
-              <div class="icon">
-                <i class="lnr lnr-code"></i>
-              </div>
-              <h4>Web Development</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
-              <div class="icon">
-                <i class="lnr lnr-mustache"></i>
-              </div>
-              <h4>Business Consultancy</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
+              <h4><?php echo $service; ?></h4>
+              <?php } ?>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <?php } ?>
     <!-- Services Section End -->
 
 

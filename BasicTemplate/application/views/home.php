@@ -331,7 +331,7 @@
             <!-- Logo -->
             <div class="col-lg-4">
                 <a class="" href="#">
-                    <h6 style="color: white"><?php echo $businessData->company_name;; ?></h6>
+                    <h6 style="color: white"><?php echo $businessData->company_name; ?></h6>
                 </a>
                 <div class="">
                     <?php foreach ($businessData->social_links as $link) {

@@ -316,8 +316,14 @@
         </div>
         <div class="row">
           <div class="col-lg-12 col-md-6 col-xs-12">
+            <?php if(isset($send)) { ?>
+              <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Success! </strong><?php echo $send->data; ?>
+              </div>
+            <?php } ?>
             <!-- <h3 class="title-head text-left">Get in touch</h3> -->
-            <form class="contact-form" data-toggle="validator">
+            <form class="form" id="" method="post" action="<?php //echo base_url() ?>">
               <div class="row">
                 <div class="col-lg-4 col-md-12 col-xs-12">
                   <div class="form-group">
@@ -340,62 +346,31 @@
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
-                <div class="col-lg-12 col-md-12 col-xs-12">
-                  <textarea class="form-control" id="message" rows="4" placeholder="Message" required data-error="Please enter your message"></textarea>
-                  <div class="help-block with-errors"></div>
-                  <div id="msgSubmit" class="h3 text-center hidden"></div>
-                  <div class="clearfix"></div>
+                  <div class="col-lg-12 col-md-12 col-xs-12">
+                    <textarea class="form-control" id="message" rows="4" placeholder="Message" required data-error="Please enter your message"></textarea>
+                    <div class="help-block with-errors"></div>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    <div class="clearfix"></div>
+                  </div>
                 </div>
-              </div>
-              <div class="about block text-center">
-                  <button type="submit" id="form-submit" ali class="btn btn-common btn-form-submit">Send Message</button>
-              <div>
+                <div class="about block text-center">
+                    <button type="submit" ali class="btn btn-common btn-form-submit">Send Message</button>
+                <div>
             </form>
           </div>
-
-
         </div>
       </div>
     </section>
     <!-- Contact Form Section End -->
 
 <footer class="text-center">
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-4">  
-                    <a href="">About</a>
-                </div>
-                <div class="col-md-4">
-                <a href="">About1</a>
-                </div>
-                <div class="col-md-4"> 
-                    <a href="#myModal1" data-toggle="modal">SHARE</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-4">  
-                    <a href="">About3</a>
-                </div>
-                <div class="col-md-4">
-                <a href="">About13</a>
-                </div>
-                <div class="col-md-4"> 
-                    <a href="#myModal1" data-toggle="modal">SHARE3</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
   <div class="container">
     <div class="row">
       <div class="col-6">
         <a class="" href="#">
           <br><br>
           <h6 style="color: white"><?php echo $businessData->company_name; ?></h6>
+          <br><br>
         </a>
         <div class="container-fluid">
   		    <div class="row">
@@ -411,7 +386,7 @@
             </div>
         </div>
         <br><br>
-        <p>&copy; 2019 <?php echo $businessData->company_name; ?>. All Rights Reserved.</p>
+        <p style="color: white">&copy; 2019 <?php echo $businessData->company_name; ?>. All Rights Reserved.</p>
       </div>
 
       <div class="col-6">
@@ -419,13 +394,13 @@
         <h6 style="color: white">Branch Address</h6><br>
         <?php if($businessData->branch_address){
         foreach ($businessData->branch_address as $branch) {  ?>
-            <p><?php echo 'Person : '.$branch->person_name . ' | Mobile : '. $branch->person_number ?></p>
-            <p><?php echo 'Email : ' . $branch->email  ?></p>
-            <p><?php echo $branch->address . ', ' . $branch->near_by . ', '.$branch->city .' - ' . $branch->pin_code . ', '.$branch->state . ', ' . $branch->country; ?></p><br>
+            <p style="color: white"><?php echo 'Person : '.$branch->person_name . ' | Mobile : '. $branch->person_number ?></p>
+            <p style="color: white"><?php echo 'Email : ' . $branch->email  ?></p>
+            <p style="color: white"><?php echo $branch->address . ', ' . $branch->near_by . ', '.$branch->city .' - ' . $branch->pin_code . ', '.$branch->state . ', ' . $branch->country; ?></p><br>
         <?php }}else{ ?>
-            <p><?php echo 'Person : '.$businessData->person_name . ' | Mobile : '. $businessData->person_number ?></p>
-            <p><?php echo 'Email : ' . $businessData->email  ?></p>
-            <p><?php echo $businessData->address . ', ' . $businessData->near_by .', '.$businessData->city . ' - ' . $businessData->pin_code . ', '.$businessData->state . ', ' . $businessData->country; ?></p><br>
+            <p style="color: white"><?php echo 'Person : '.$businessData->person_name . ' | Mobile : '. $businessData->person_number ?></p>
+            <p style="color: white"><?php echo 'Email : ' . $businessData->email  ?></p>
+            <p style="color: white"><?php echo $businessData->address . ', ' . $businessData->near_by .', '.$businessData->city . ' - ' . $businessData->pin_code . ', '.$businessData->state . ', ' . $businessData->country; ?></p><br>
         <?php } ?>
       </div>
       </div>

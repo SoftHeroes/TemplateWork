@@ -260,7 +260,7 @@
                 </div>
             </div>
             <!-- The Map -->
-            <div class="map col-md-6 bgimg-height-sm">
+            <div class="map col-md-6 bg-img-height-sm">
                 <div id="ieatmaps">
                     <iframe src="https://maps.google.com/maps?q=<?php echo $businessData->lat;?>,<?php echo $businessData->lng;?>&hl=es;z=14&amp;output=embed" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
                 </div>

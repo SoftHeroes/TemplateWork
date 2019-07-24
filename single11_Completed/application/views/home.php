@@ -79,15 +79,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="1">About</a>
                     </li>
-                    <?php } if(!empty($gallery)){?>
+                    <?php } ?>
+                    <?php if(!empty($gallery)){?>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="2">Portfolio</a>
                     </li>
-                    <?php } if(!empty($businessData->product_dealing)){?>
+                    <?php } ?>
+                    <?php if(!empty($businessData->product_dealing)){?>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="3">Services</a>
                     </li>
-                    <?php } if(!empty($testimonialsData)){?>
+                    <?php } ?>
+                    <?php if(!empty($testimonialsData)){?>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="5">Testimonials</a>
                     </li>
@@ -302,16 +305,20 @@
                             <?php } ?>
                         </div>
                         <div class="info">
+                        <?php
+                            $NumbersArr = explode(",", $businessData->person_number);
+                            foreach ($NumbersArr as $num) { ?>
+                                <p><?php echo  '+91 ' . $num; ?></p>
+                            <?php } ?>
                             <h6><span class="icon ti-headphone-alt"></span>Phone:</h6>
                             <p><?php echo $businessData->person_name; ?></p>
                             <?php if( !empty($businessData->person_number)) ?>
-                            <p>Persone No. : <?php echo '+91 ' . $businessData->person_number; ?></p>
-                            <?php if( !empty($businessData->corporate_no) ) ?>
-                            <?php $Num = explode(',',$businessData->corporate_no) ?>
-                            <p>Corporate No. : <?php echo '+91 ' .$Num[0] ; ?></p>
-                            <?php for ($i=1; $i < count($Num) ; $i++) { ?>
-                                <p><?php echo '+91 ' .$Num[$i] ; ?></p>
+                            <p>Persone No. : <?php
+                            $NumbersArr = explode(",", $businessData->person_number);
+                            foreach ($NumbersArr as $num) { ?>
+                                <p><?php echo  '+91 ' . $num; ?></p>
                             <?php } ?>
+                            </p>
                         </div>
                     </div>
                 </div>
